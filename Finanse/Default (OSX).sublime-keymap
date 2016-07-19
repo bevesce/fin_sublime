@@ -1,0 +1,3 @@
+[
+  { "keys": ["shift+super+f"], "command": "finanse_filter", "context": [{ "key": "selector", "operator": "equal", "operand": "text.finanse" }] },
+]

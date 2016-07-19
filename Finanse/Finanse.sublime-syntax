@@ -1,0 +1,27 @@
+%YAML 1.2
+---
+name: Finanse
+file_extensions: [finanse]
+scope: text.finanse
+
+contexts:
+ main:
+   - match: '^\n$'
+   - match: ^#.*
+     scope: comment
+   - match: ^\d\d\d\d-\d\d-\d\d
+     scope: storage
+     push: transaction
+   - match: ^.*$
+     push: invalid
+
+ transaction:
+   - match: -{0,1}\d+((.|,)\d{1,2}){0,1}[^\d\n]+\n$
+     scope: storage
+     pop: true
+   - match: $
+     push: invalid
+
+ invalid:
+   - match: (.|\n)*
+     scope: invalid.illegal
