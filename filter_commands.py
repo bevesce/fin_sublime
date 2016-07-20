@@ -18,14 +18,20 @@ class FinanseFilterCommand(sublime_plugin.TextCommand):
     def filter_and_sum(self, query):
         self.filter(query)
         content = self.view.substr(sublime.Region(0, self.view.size()))
-        transactions = finanse.Transactions(content).filter(query)
+        try:
+            transactions = finanse.Transactions(content).filter(query)
+        except finanse.ParseError:
+            return
         self.view.window().show_quick_panel(
             [str(transactions.sum())], lambda _: None
         )
 
     def filter(self, query):
         self.unfold_all()
-        query = finanse.query(query)
+        try:
+            query = finanse.query(query)
+        except finanse.ParseError:
+            return
         content = self.view.substr(sublime.Region(0, self.view.size()))
         lines_to_fold = self.find_lines_to_fold(content, query)
         self.fold_lines(lines_to_fold)
@@ -56,7 +62,7 @@ class FinanseFilterCommand(sublime_plugin.TextCommand):
                     prev_region = region
             else:
                 prev_region = region
-            yield region
+            # yield region
         if prev_region: yield prev_region
 
     def unfold_all(self):
