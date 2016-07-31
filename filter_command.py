@@ -1,6 +1,10 @@
 from .finanse import finanse
+from .finanse.finanse import currency
 import sublime
 import sublime_plugin
+
+
+currency.setup_cache('currency.json')
 
 
 class FinanseFilterCommand(sublime_plugin.TextCommand):
@@ -22,9 +26,7 @@ class FinanseFilterCommand(sublime_plugin.TextCommand):
             transactions = finanse.Transactions(content).filter(query)
         except finanse.ParseError:
             return
-        self.view.window().show_quick_panel(
-            [str(transactions.sum())], lambda _: None
-        )
+        self.show_sum(transactions)
 
     def filter(self, query):
         self.unfold_all()
@@ -67,3 +69,15 @@ class FinanseFilterCommand(sublime_plugin.TextCommand):
 
     def unfold_all(self):
         self.view.unfold(sublime.Region(0, self.view.size()))
+
+    def show_sum(self, transactions):
+        total = transactions.sum()
+        lines = [str(total)]
+        currencies = total.currencies()
+        if len(currencies) > 1:
+            for currency in currencies:
+                lines.append('= ' + str(total.convert(currency)))
+
+        self.view.window().show_quick_panel(
+            lines, lambda _: None
+        )
