@@ -1,4 +1,4 @@
-from . import finanse
+from .finanse import finanse
 import sublime
 import sublime_plugin
 
