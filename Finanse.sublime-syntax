@@ -17,7 +17,7 @@ contexts:
 
  transaction:
    - match: -{0,1}\d+((.|,)\d{1,2}){0,1}[^\d\n]+\n$
-     scope: storage
+     scope: constant.numeric
      pop: true
    - match: $
      push: invalid
