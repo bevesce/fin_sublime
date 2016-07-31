@@ -1,0 +1,3 @@
+[submodule "finanse"]
+	path = finanse
+	url = https://bevesce@github.com/bevesce/finanse.git
