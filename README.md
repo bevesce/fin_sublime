@@ -2,7 +2,7 @@
 
 Sublime Text 3 plugin for expenses and transactions tracking in plain text using [finanse](https://github.com/bevesce/finanse).
 
-![sublime finanse icon](icon.png) ![finanse icon](finanse/icon.png)
+![sublime finanse icon](icon.png) ![finanse icon](https://github.com/bevesce/finanse/raw/master/icon.png)
 
 ## Installation
 
