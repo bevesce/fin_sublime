@@ -6,7 +6,7 @@ Sublime Text 3 plugin for expenses and transactions tracking, in plain text, usi
 
 ## Installation
 
-As long as I'm the only person using this, I don't want to pollute Package Control. So installation is manual:
+At least for now I don't want to unnecessarily pollute Package Control. So as long usefulness for other people is not proven installation is manual:
 
 ```
 git clone --recursive https://github.com/bevesce/SublimeFinanse.git Finanse
