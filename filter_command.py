@@ -41,6 +41,9 @@ class FinanseFilterCommand(sublime_plugin.TextCommand):
     def find_lines_to_fold(self, content, query):
         lines = content.splitlines()
         for i, line in enumerate(lines):
+            if not line:
+                yield i
+                continue
             if not query(finanse.Transaction(line)):
                 yield i
 
