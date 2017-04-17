@@ -1,5 +1,8 @@
-from .finanse import finanse
-from .finanse.finanse import currency
+from .finanse import Transactions
+from .finanse import Transaction
+from .finanse import ParseError
+from .finanse import query as fquery
+from .finanse import currency
 import sublime
 import sublime_plugin
 
@@ -23,16 +26,16 @@ class FinanseFilterCommand(sublime_plugin.TextCommand):
         self.filter(query)
         content = self.view.substr(sublime.Region(0, self.view.size()))
         try:
-            transactions = finanse.Transactions(content).filter(query)
-        except finanse.ParseError:
+            transactions = Transactions(content).filter(query)
+        except ParseError:
             return
         self.show_sum(transactions)
 
     def filter(self, query):
         self.unfold_all()
         try:
-            query = finanse.query(query)
-        except finanse.ParseError:
+            query = fquery(query)
+        except ParseError:
             return
         content = self.view.substr(sublime.Region(0, self.view.size()))
         lines_to_fold = self.find_lines_to_fold(content, query)
@@ -44,7 +47,7 @@ class FinanseFilterCommand(sublime_plugin.TextCommand):
             if not line:
                 yield i
                 continue
-            if not query(finanse.Transaction(line)):
+            if not query(Transaction(line)):
                 yield i
 
     def fold_lines(self, indices):
