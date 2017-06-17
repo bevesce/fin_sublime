@@ -47,6 +47,9 @@ class FinanseFilterCommand(sublime_plugin.TextCommand):
             if not line:
                 yield i
                 continue
+            if line.startswith('#'):
+                yield i
+                continue
             if not query(Transaction(line)):
                 yield i
 
