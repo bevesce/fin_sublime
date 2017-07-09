@@ -1,10 +1,11 @@
-from .finanse import Transactions
-from .finanse import Transaction
-from .finanse import ParseError
-from .finanse import query as fquery
-from .finanse import currency
 import sublime
 import sublime_plugin
+
+from .finanse.finanse import Transactions
+from .finanse.finanse import Transaction
+from .finanse.finanse import ParseError
+from .finanse.finanse import query as fquery
+from .finanse.finanse import currency
 
 
 currency.setup_cache('currency.json')
