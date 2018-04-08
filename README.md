@@ -1,16 +1,16 @@
-# Sublime Finanse
+# Fin Sublime
 
-Sublime Text 3 plugin for expenses and transactions tracking, in plain text, using [finanse](https://github.com/bevesce/finanse).
+Sublime Text 3 plugin for expenses and transactions tracking, in plain text, using [fin](https://github.com/bevesce/fin).
 
-![sublime finanse icon](icon.png) ![finanse icon](https://github.com/bevesce/finanse/raw/master/icon.png)
+![sublime fin icon](icon.png)
 
 ## Installation
 
-At least for now I don't want to unnecessarily pollute Package Control. So installation is manual:
+Installation is manual:
 
 ```
-git clone --recursive https://github.com/bevesce/SublimeFinanse.git Finanse
-mv Finanse "path/to/Sublime Text 3/Packages/"
+git clone --recursive https://github.com/bevesce/fin_sublime.git fin_sublime
+mv fin_sublime "path/to/Sublime Text 3/Packages/"
 ```
 
 There's one git submodule here so you need to use `--recursive` flag.
@@ -24,7 +24,7 @@ Highlighting should work with every color scheme:
 
 ### Filter & sum
 
-You can filter (by folding) transactions with *finanse* queries:
+You can filter (by folding) transactions with *fin* queries:
 
 ![filter](screenshots/filter.png)
 

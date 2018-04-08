@@ -1,14 +1,6 @@
 [
     {
-    	"caption": "Finanse: Filter",
-    	"command": "finanse_filter"
-    },
-    {
-    	"caption": "Finanse: Merge",
-    	"command": "finanse_merge"
-    },
-    {
-    	"caption": "Finanse: Merge with same tags",
-    	"command": "finanse_merge_with_same_tags"
+    	"caption": "Fin: Filter",
+    	"command": "fin_filter"
     }
 ]

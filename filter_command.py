@@ -1,17 +1,17 @@
 import sublime
 import sublime_plugin
 
-from .finanse.finanse import Transactions
-from .finanse.finanse import Transaction
-from .finanse.finanse import ParseError
-from .finanse.finanse import query as fquery
-from .finanse.finanse import currency
+from .fin.fin import Transactions
+from .fin.fin import Transaction
+from .fin.fin import ParseError
+from .fin.fin import query as fquery
+from .fin.fin import currency
 
 
 currency.setup_cache('currency.json')
 
 
-class FinanseFilterCommand(sublime_plugin.TextCommand):
+class FinFilterCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         self.query_from_input()
 

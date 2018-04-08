@@ -2,7 +2,7 @@ import sys
 import sublime
 import unittest
 
-FinanseFilterCommand = sys.modules["Finanse.filter_commands"].FinanseFilterCommand
+FinFilterCommand = sys.modules["Fin.filter_commands"].FinFilterCommand
 
 transactions = """
 2016-01-01 a 1zł
@@ -16,7 +16,7 @@ transactions = """
 class FilterCommandTestCase(unittest.TestCase):
     def setUp(self):
         self.view = sublime.active_window().new_file()
-        self.command = FinanseFilterCommand(self.view)
+        self.command = FinFilterCommand(self.view)
 
     def tearDown(self):
         if self.view:

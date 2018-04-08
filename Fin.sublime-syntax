@@ -1,8 +1,8 @@
 %YAML 1.2
 ---
-name: Finanse
-file_extensions: [finanse]
-scope: text.finanse
+name: Fin
+file_extensions: [fin]
+scope: text.fin
 
 contexts:
  main:
