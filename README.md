@@ -1,6 +1,6 @@
 # Fin Sublime
 
-Sublime Text 3 plugin for expenses and transactions tracking, in plain text, using [fin](https://github.com/bevesce/fin).
+Sublime Text 3 plugin for [fin](https://github.com/bevesce/fin).
 
 ![sublime fin icon](icon.png)
 
